@@ -1,0 +1,8 @@
+# Redirigir todo el tráfico a la carpeta /public
+RewriteEngine On
+
+# Si se accede directamente a la raíz, redirige a /public/
+RewriteRule ^$ public/ [L]
+
+# Si se accede a cualquier ruta que no exista, redirige igualmente a /public/
+RewriteRule (.*) public/$1 [L]

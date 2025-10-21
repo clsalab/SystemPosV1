@@ -1,0 +1,68 @@
+Listado de rutas de carpetas
+El número de serie del volumen es 287B-7F12
+C:.
+¦   .htaccess
+¦   estructura.txt
+¦   test_db.php
+¦   
++---app
+¦   +---config
+¦   ¦       database.php
+¦   ¦       
+¦   +---controllers
+¦   ¦       AuthController.php
+¦   ¦       ClientesController.php
+¦   ¦       HomeController.php
+¦   ¦       ProductosController.php
+¦   ¦       VentasController.php
+¦   ¦       
+¦   +---core
+¦   ¦       App.php
+¦   ¦       Controller.php
+¦   ¦       Model.php
+¦   ¦       
+¦   +---models
+¦   ¦       AuthModel.php
+¦   ¦       Cliente.php
+¦   ¦       Producto.php
+¦   ¦       Usuario.php
+¦   ¦       Venta.php
+¦   ¦       
+¦   +---route
+¦       +---auth
+¦       ¦       login.php
+¦       ¦       
+¦       +---clientes
+¦       ¦       crear.php
+¦       ¦       editar.php
+¦       ¦       index.php
+¦       ¦       
+¦       +---home
+¦       ¦       index.php
+¦       ¦       
+¦       +---layouts
+¦       ¦       footer.php
+¦       ¦       header.php
+¦       ¦       
+¦       +---productos
+¦       ¦       crear.php
+¦       ¦       editar.php
+¦       ¦       index.php
+¦       ¦       
+¦       +---ventas
+¦               detalle.php
+¦               index.php
+¦               nueva.php
+¦               
++---public
+    ¦   .htaccess
+    ¦   index.php
+    ¦   
+    +---assets
+        +---css
+        ¦       estilo.css
+        ¦       
+        +---img
+        +---js
+                funciones.js
+                

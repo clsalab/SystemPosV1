@@ -1,0 +1,214 @@
+/* ================================
+   🌟 ESTILO GENERAL - SISTEMA DE VENTAS
+   ================================ */
+
+:root {
+  --color-primario: #007bff;
+  --color-primario-hover: #0056b3;
+  --color-fondo: #f8fafc;
+  --color-texto: #333;
+  --radio: 10px;
+  --sombra: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background-color: var(--color-fondo);
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--color-texto);
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   🧭 NAVBAR
+   ================================ */
+
+.navbar {
+  background-color: var(--color-primario);
+  box-shadow: var(--sombra);
+}
+
+.navbar-brand,
+.nav-link,
+.navbar-text {
+  color: #fff !important;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  background-color: var(--color-primario-hover);
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+/* ================================
+   🗃️ TARJETAS (formularios, paneles)
+   ================================ */
+
+.card {
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  border: none;
+}
+
+.card h3, .card h2 {
+  font-weight: 600;
+  color: var(--color-primario);
+}
+
+.card i {
+  margin-right: 8px;
+}
+
+/* ================================
+   🧾 FORMULARIOS
+   ================================ */
+
+.form-label {
+  font-weight: 600;
+  color: #444;
+}
+
+input.form-control, select.form-select, textarea.form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* ================================
+   💬 MENSAJES / ALERTAS PERSONALIZADAS
+   ================================ */
+
+.mensaje {
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.mensaje.exito {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border: 1px solid #badbcc;
+}
+
+.mensaje.error {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+}
+
+.mensaje.advertencia {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+/* ================================
+   📋 TABLAS CRUD
+   ================================ */
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: var(--color-primario);
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.table tr:hover {
+  background-color: #e9f2ff;
+  transition: 0.2s;
+}
+
+.table td, .table th {
+  padding: 12px 15px;
+  vertical-align: middle;
+}
+
+/* ================================
+   🧠 BOTONES PERSONALIZADOS
+   ================================ */
+
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primario-hover);
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+}
+
+.btn-eliminar:hover {
+  background-color: #a71d2a;
+}
+
+.btn-secundario {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secundario:hover {
+  background-color: #5a6268;
+}
+
+/* ================================
+   📱 RESPONSIVE
+   ================================ */
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+}
+
+/* ================================
+   📦 LOGIN / REGISTRO
+   ================================ */
+
+.auth-card {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  padding: 30px;
+}
+
+.auth-card h3 {
+  color: var(--color-primario);
+  margin-bottom: 1rem;
+  text-align: center;
+}

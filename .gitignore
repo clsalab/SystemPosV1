@@ -1,0 +1,31 @@
+# Archivos y carpetas de sistema
+.DS_Store
+Thumbs.db
+
+# Configuración local
+/.vscode/
+/.idea/
+/nbproject/
+
+# Configuración de XAMPP o local
+*.log
+*.env
+.env.*
+
+# Archivos temporales
+*.bak
+*.tmp
+
+# Carpeta vendor (si usas Composer)
+vendor/
+
+# Cache
+cache/
+*.cache
+
+# Configuración del sistema
+/config.php
+/app/config/database.php
+
+# Archivos del sistema operativo
+desktop.ini

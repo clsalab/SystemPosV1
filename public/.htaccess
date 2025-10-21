@@ -1,0 +1,12 @@
+# Activar reescritura
+RewriteEngine On
+
+# Base del proyecto (ajústalo según tu carpeta)
+RewriteBase /SystemPosV1/public/
+
+# Ignorar archivos y carpetas reales
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirigir todas las solicitudes al index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
