@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . '/../layouts/header.php'; ?>
+
 
 <div class="dashboard">
     <h2>Bienvenido, <?= htmlspecialchars($data['nombre']); ?> 🎉</h2>
@@ -9,18 +9,18 @@
     <?php if ($data['rol'] === 'admin'): ?>
         <h3>Panel de Administrador</h3>
         <ul>
-            <li><a href="/SystemPosV1/public/productos">Gestión de Productos</a></li>
-            <li><a href="/SystemPosV1/public/clientes">Gestión de Clientes</a></li>
-            <li><a href="/SystemPosV1/public/ventas">Ver Ventas</a></li>
-            <li><a href="/SystemPosV1/public/usuarios">Gestión de Usuarios</a></li>
+            <li><a href="<?= BASE_URL ?>/productos">Gestión de Productos</a></li>
+            <li><a href="<?= BASE_URL ?>/clientes">Gestión de Clientes</a></li>
+            <li><a href="<?= BASE_URL ?>/ventas">Ver Ventas</a></li>
+            <li><a href="<?= BASE_URL ?>/usuarios">Gestión de Usuarios</a></li>
         </ul>
 
     <?php elseif ($data['rol'] === 'vendedor'): ?>
         <h3>Panel de Vendedor</h3>
         <ul>
-            <li><a href="/SystemPosV1/public/ventas/nueva">Registrar Venta</a></li>
-            <li><a href="/SystemPosV1/public/ventas">Mis Ventas</a></li>
-            <li><a href="/SystemPosV1/public/clientes">Mis Clientes</a></li>
+            <li><a href="<?= BASE_URL ?>/ventas/nueva">Registrar Venta</a></li>
+            <li><a href="<?= BASE_URL ?>/ventas">Mis Ventas</a></li>
+            <li><a href="<?= BASE_URL ?>/clientes">Mis Clientes</a></li>
         </ul>
 
     <?php else: ?>
@@ -28,8 +28,9 @@
     <?php endif; ?>
 
     <hr>
-    <a href="/SystemPosV1/public/auth/logout" class="btn">Cerrar sesión</a>
+    <a href="<?= BASE_URL ?>/auth/logout" class="btn">Cerrar sesión</a>
 </div>
+
 
 <style>
 .dashboard {
@@ -59,4 +60,4 @@
 .btn:hover { background: #c82333; }
 </style>
 
-<?php require_once __DIR__ . '/../layouts/footer.php'; ?>
+

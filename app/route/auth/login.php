@@ -123,7 +123,7 @@
             <div class="error"><?= htmlspecialchars($data['error']) ?></div>
         <?php endif; ?>
 
-        <form method="POST" action="/SystemPosV1/public/auth/login">
+        <form method="POST" action="<?= BASE_URL ?>/auth/login">
             <div class="form-group">
                 <label for="email">Correo electrónico</label>
                 <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>

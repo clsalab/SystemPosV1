@@ -9,14 +9,13 @@ class Cliente
 
     public function __construct()
     {
-        // Conexión mediante la clase Database
         $this->db = Database::getInstance()->getConnection();
     }
 
     /**
      * Obtener todos los clientes
      */
-    public function getAll()
+    public function obtenerTodos()
     {
         $stmt = $this->db->prepare("SELECT * FROM clientes ORDER BY id DESC");
         $stmt->execute();
@@ -26,7 +25,7 @@ class Cliente
     /**
      * Obtener un cliente por su ID
      */
-    public function getById($id)
+    public function obtenerPorId($id)
     {
         $stmt = $this->db->prepare("SELECT * FROM clientes WHERE id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -37,32 +36,41 @@ class Cliente
     /**
      * Crear un nuevo cliente
      */
-    public function create($nombre, $email, $telefono)
+    public function crear($nombre, $email, $telefono, $direccion)
     {
-        $stmt = $this->db->prepare("INSERT INTO clientes (nombre, email, telefono) VALUES (:nombre, :email, :telefono)");
+        $stmt = $this->db->prepare("
+            INSERT INTO clientes (nombre, email, telefono, direccion)
+            VALUES (:nombre, :email, :telefono, :direccion)
+        ");
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':telefono', $telefono);
+        $stmt->bindParam(':direccion', $direccion);
         return $stmt->execute();
     }
 
     /**
      * Actualizar un cliente existente
      */
-    public function update($id, $nombre, $email, $telefono)
+    public function actualizar($id, $nombre, $email, $telefono, $direccion)
     {
-        $stmt = $this->db->prepare("UPDATE clientes SET nombre = :nombre, email = :email, telefono = :telefono WHERE id = :id");
-        $stmt->bindParam(':id', $id);
+        $stmt = $this->db->prepare("
+            UPDATE clientes
+            SET nombre = :nombre, email = :email, telefono = :telefono, direccion = :direccion
+            WHERE id = :id
+        ");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':telefono', $telefono);
+        $stmt->bindParam(':direccion', $direccion);
         return $stmt->execute();
     }
 
     /**
      * Eliminar un cliente
      */
-    public function delete($id)
+    public function eliminar($id)
     {
         $stmt = $this->db->prepare("DELETE FROM clientes WHERE id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);

@@ -1,43 +1,51 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once __DIR__ . '/../models/Usuario.php';
+
 class AuthController extends Controller {
 
+    // Página principal del login
     public function index() {
-        $this->view('auth/login');
+        // Mostrar el formulario sin encabezado ni pie
+        $this->view('auth/login', [], false);
     }
 
+    // Procesa el inicio de sesión
     public function login() {
-        require_once __DIR__ . '/../models/Usuario.php';
         $usuarioModel = new Usuario();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $email = trim($_POST['email']);
+            $password = trim($_POST['password']);
 
             $usuario = $usuarioModel->verificarCredenciales($email, $password);
 
             if ($usuario) {
-                session_start();
+                // Guardar datos del usuario en la sesión
                 $_SESSION['usuario'] = [
-                    'id' => $usuario['id'],
+                    'id'     => $usuario['id'],
                     'nombre' => $usuario['nombre'],
-                    'rol' => $usuario['rol']
+                    'rol'    => $usuario['rol']
                 ];
 
-                // ✅ Redirige al dashboard
-                header('Location: /SystemPosV1/public/home');
-                exit;
+                // Redirigir al inicio del sistema
+                $this->redirect(BASE_URL . '/home');
             } else {
-                $this->view('auth/login', ['error' => 'Correo o contraseña incorrectos']);
+                // Mostrar error sin encabezado ni pie
+                $this->view('auth/login', ['error' => 'Correo o contraseña incorrectos'], false);
             }
         } else {
-            $this->view('auth/login');
+            // Si no es POST, simplemente mostrar el login vacío
+            $this->view('auth/login', [], false);
         }
     }
 
+    // Cerrar sesión
     public function logout() {
-        session_start();
         session_destroy();
-        header('Location: /SystemPosV1/public/auth/login');
-        exit;
+        $this->redirect(BASE_URL . '/auth/login');
     }
 }
