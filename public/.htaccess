@@ -1,12 +1,13 @@
-# Activar reescritura
-RewriteEngine On
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-# Base del proyecto (ajústalo según tu carpeta)
-RewriteBase /SystemPosV1/public/
+    # Base del proyecto (ajustada exactamente a tu ruta)
+    RewriteBase /SystemPosV1/public/
 
-# Ignorar archivos y carpetas reales
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+    # Ignorar archivos y carpetas existentes
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
 
-# Redirigir todas las solicitudes al index.php
-RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+    # Enrutar todo a index.php
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>

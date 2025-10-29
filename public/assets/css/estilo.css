@@ -232,3 +232,45 @@ input:focus, select:focus, textarea:focus {
 .nav-link:hover::after {
   width: 100%;
 }
+
+.dashboard {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+.dashboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard li {
+    margin: 10px 0;
+}
+
+.dashboard a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.dashboard a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #dc3545;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #c82333;
+}
+

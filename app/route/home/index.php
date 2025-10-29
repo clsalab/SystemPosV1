@@ -1,63 +1,59 @@
-
-
 <div class="dashboard">
-    <h2>Bienvenido, <?= htmlspecialchars($data['nombre']); ?> 🎉</h2>
-    <p>Tu rol es: <strong><?= htmlspecialchars($data['rol']); ?></strong></p>
+    <header class="dashboard-header">
+        <h2>👋 ¡Hola, <?= htmlspecialchars($data['nombre']); ?>!</h2>
+        <p>Bienvenido a tu panel <strong><?= htmlspecialchars(ucfirst($data['rol'])); ?></strong></p>
+    </header>
 
-    <hr>
+    <section class="dashboard-content">
+        <?php if ($data['rol'] === 'admin'): ?>
+            <h3>Panel de Administración</h3>
+            <div class="card-grid">
+                <a class="card" href="<?= BASE_URL ?>/productos">
+                    <div class="icon">📦</div>
+                    <h4>Productos</h4>
+                    <p>Gestiona tu inventario</p>
+                </a>
+                <a class="card" href="<?= BASE_URL ?>/clientes">
+                    <div class="icon">👥</div>
+                    <h4>Clientes</h4>
+                    <p>Administra tu base de clientes</p>
+                </a>
+                <a class="card" href="<?= BASE_URL ?>/ventas">
+                    <div class="icon">💰</div>
+                    <h4>Ventas</h4>
+                    <p>Consulta el historial de ventas</p>
+                </a>
+                <a class="card" href="<?= BASE_URL ?>/usuarios">
+                    <div class="icon">🧑‍💼</div>
+                    <h4>Usuarios</h4>
+                    <p>Controla accesos y roles</p>
+                </a>
+            </div>
 
-    <?php if ($data['rol'] === 'admin'): ?>
-        <h3>Panel de Administrador</h3>
-        <ul>
-            <li><a href="<?= BASE_URL ?>/productos">Gestión de Productos</a></li>
-            <li><a href="<?= BASE_URL ?>/clientes">Gestión de Clientes</a></li>
-            <li><a href="<?= BASE_URL ?>/ventas">Ver Ventas</a></li>
-            <li><a href="<?= BASE_URL ?>/usuarios">Gestión de Usuarios</a></li>
-        </ul>
+        <?php elseif ($data['rol'] === 'vendedor'): ?>
+            <h3>Panel de Ventas</h3>
+            <div class="card-grid">
+                <a class="card" href="<?= BASE_URL ?>/ventas/nueva">
+                    <div class="icon">🧾</div>
+                    <h4>Nueva Venta</h4>
+                    <p>Registra una nueva transacción</p>
+                </a>
+                <a class="card" href="<?= BASE_URL ?>/ventas">
+                    <div class="icon">📊</div>
+                    <h4>Mis Ventas</h4>
+                    <p>Consulta tus operaciones</p>
+                </a>
+                <a class="card" href="<?= BASE_URL ?>/clientes">
+                    <div class="icon">🤝</div>
+                    <h4>Clientes</h4>
+                    <p>Gestiona tus contactos</p>
+                </a>
+            </div>
 
-    <?php elseif ($data['rol'] === 'vendedor'): ?>
-        <h3>Panel de Vendedor</h3>
-        <ul>
-            <li><a href="<?= BASE_URL ?>/ventas/nueva">Registrar Venta</a></li>
-            <li><a href="<?= BASE_URL ?>/ventas">Mis Ventas</a></li>
-            <li><a href="<?= BASE_URL ?>/clientes">Mis Clientes</a></li>
-        </ul>
+        <?php else: ?>
+            <p class="no-access">⚠️ No tienes permisos asignados.</p>
+        <?php endif; ?>
+    </section>
 
-    <?php else: ?>
-        <p>No tienes permisos asignados.</p>
-    <?php endif; ?>
 
-    <hr>
-    <a href="<?= BASE_URL ?>/auth/logout" class="btn">Cerrar sesión</a>
 </div>
-
-
-<style>
-.dashboard {
-    max-width: 600px;
-    margin: 50px auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    font-family: Arial;
-}
-.dashboard ul { list-style: none; padding: 0; }
-.dashboard li { margin: 10px 0; }
-.dashboard a {
-    text-decoration: none;
-    color: #007bff;
-}
-.dashboard a:hover { text-decoration: underline; }
-.btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #dc3545;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-}
-.btn:hover { background: #c82333; }
-</style>
-
-

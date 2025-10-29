@@ -10,6 +10,7 @@ require_once __DIR__ . '/../../../app/config/config.php';
 
     <!-- Estilos globales -->
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/estilo.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/dashboard.css">
 
     <!-- JS -->
     <script src="<?= BASE_URL ?>/assets/js/funciones.js" defer></script>
